@@ -34,7 +34,14 @@ const Navbar = () => {
     <div className="lg:navbar-start justify-start">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg> */}
+          <img
+    className="rounded-full w-12 h-12 fixed top-6 lg:block ml-12"
+    // className='hidden md:block'
+    src="https://static.vecteezy.com/system/resources/thumbnails/026/286/673/small/sunset-logo-design-vector.jpg"
+    alt="menu-icon"
+    
+  />
         </div>
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
           {navbar}
@@ -44,15 +51,14 @@ const Navbar = () => {
      
 <Link to="/">
   <img
-    className="rounded-full"
+    className="rounded-full w-16 h-16 fixed top-4 hidden lg:block items-center justify-center"
     // className='hidden md:block'
     src="https://static.vecteezy.com/system/resources/thumbnails/026/286/673/small/sunset-logo-design-vector.jpg"
     alt="logo"
-    width="100"
-    height="100"
+    
   />
 </Link>
-<h1 className="hidden lg:block">Tourist <br />Navigator</h1>
+<h1 className="lg:pl-24 md:pl-16 pl-4 text-green-800 flex items-center justify-center">Tourist Navigator</h1>
 </div></a>
     </div>
     <div className="navbar-center hidden lg:flex">
@@ -60,7 +66,7 @@ const Navbar = () => {
         {navbar}
       </ul>
     </div>
-    <div className="navbar-end">
+    <div className="flex-end">
     <div className="py-4 border-b-[1px]">
         <Container>
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
@@ -94,8 +100,8 @@ const Navbar = () => {
                       referrerPolicy="no-referrer"
                       src={user && user.photoURL ? user.photoURL : avatarImg}
                       alt="profile"
-                      height="30"
-                      width="30"
+                      height="40"
+                      width="40"
                     />
                   </div>
                 </div>

@@ -2,8 +2,8 @@ import im1 from "../../../assets/images/tajmohol.jpg"
 import im2 from "../../../assets/images/Home15.jpg"
 import im3 from "../../../assets/images/pic3.jpg"
 import im4 from "../../../assets/images/pic5.jpg"
-import im5 from "../../../assets/images/im2 (3).JPG"
-import im6 from "../../../assets/images/images (1).jpg"
+import im5 from "../../../assets/images/bankok.jpg"
+import im6 from "../../../assets/images/pic5.jpg"
 
 const Banner = () => {
     return (
@@ -12,16 +12,14 @@ const Banner = () => {
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im1} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
+                Discover <br />the World's <br /> Hidden Gems
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Discover hidden gems and create unforgettable memories with our travel guides
                 </p>
               </div>
               <div>
@@ -43,16 +41,15 @@ const Banner = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im2} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
+                Explore Dream <br />
+                Discover
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Your ultimate adventure starts here—explore the world with us
                 </p>
               </div>
               <div>
@@ -74,16 +71,14 @@ const Banner = () => {
         </div>
         <div id="slide3" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im3} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 py-1">
+                Find Your <br />Next Destination
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Unlock the secrets of the world's most beautiful places
                 </p>
               </div>
               <div>
@@ -105,16 +100,14 @@ const Banner = () => {
         </div>
         <div id="slide4" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im4} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 py-1">
+                Wander More,<br /> Worry Less
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Unlock the secrets of the world's most beautiful places
                 </p>
               </div>
               <div>
@@ -136,16 +129,14 @@ const Banner = () => {
         </div>
         <div id="slide5" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im5} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
+                Wander More,<br /> Worry Less
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Unlock the secrets of the world's most beautiful places
                 </p>
               </div>
               <div>
@@ -167,16 +158,14 @@ const Banner = () => {
         </div>
         <div id="slide6" className="carousel-item relative w-full lg:h-[500px]">
           <img src={im6} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-full bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col pl-20">
+          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
+            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
               <div className="text-white">
-                <h1 className="text-6xl font-bold py-6">
-                  Affordable <br />
-                  Price For Car <br /> Servicing
+                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
+                Wander More,<br /> Worry Less
                 </h1>
                 <p className="py-4">
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
+                Unlock the secrets of the world's most beautiful places
                 </p>
               </div>
               <div>
