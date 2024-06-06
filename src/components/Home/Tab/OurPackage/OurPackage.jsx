@@ -4,7 +4,10 @@
 // import im4 from "../../../../assets/images/adventure.jpg"
 import { GoHeartFill } from "react-icons/go";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const OurPackage = () => {
   const [tourTypes, setTourTypes] = useState([]);
@@ -13,6 +16,62 @@ const OurPackage = () => {
       .then((res) => res.json())
       .then((data) => setTourTypes(data));
   }, []);
+   
+  //  const {_id,image_url, tour_type, trip_title} = tourTypes;
+console.log(tourTypes);
+//   add to wish list 
+
+const { user } = useAuth();
+const navigate = useNavigate();
+const location = useLocation();
+const axiosSecure = useAxiosSecure();
+// const [, refetch] = useCart();
+
+const handleAddToWishList = (item) => {
+  if (user && user.email) {
+      //send cart item to the database
+      const WishListItem = {
+        
+        email: user.email,
+       ...item
+          
+         
+         
+      }
+      axiosSecure.post('/wishList', WishListItem)
+          .then(res => {
+              console.log(res.data)
+              if (res.data.insertedId) {
+                  Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: `${item.tour_type} added to your cart`,
+                      showConfirmButton: false,
+                      timer: 1500
+                  });
+                  // refetch cart to update the cart items count
+                //   refetch();
+              }
+
+          })
+  }
+  else {
+      Swal.fire({
+          title: "You are not Logged In",
+          text: "Please login to add to the cart?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, login!"
+      }).then((result) => {
+          if (result.isConfirmed) {
+              //   send the user to the login page
+              navigate('/login', { state: { from: location } })
+          }
+      });
+  }
+}
   return (
     <div>
       <div className="grid grid-cols-2 gap-4">
@@ -27,9 +86,9 @@ const OurPackage = () => {
                 className=" h-[300px] w-full hover:scale-110 rounded-xl p-4"
               />
               <div className="absolute bottom-12 w-14 h-14 rounded-xl right-10 top-10 hover:bg-[#ffff] text-center">
-                <Link to="/beach">
-                  <GoHeartFill className="text-green-500 text-4xl hover:text-rose-500 m-3" />
-                </Link>
+                
+                 <button> <GoHeartFill onClick={()=>handleAddToWishList(tourType)} className="text-green-500 text-4xl hover:text-rose-500 m-3" /></button>
+              
               </div>
             </div>
             <div className="ml-4 py-4">
@@ -38,55 +97,12 @@ const OurPackage = () => {
               <p>Price $550</p>
               <div className="">
                 <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
-                  <Link to="/beach">View Details</Link>
+                  <Link  to={`tour/${tourType._id}`}>View Details</Link>
                 </button>
               </div>
             </div>
           </div>
         ))}
-
-        {/* <div className="grid grid-cols-2 bg-base-100 shadow-xl">
-<div className="rounded-xl"><img src={im2} className=" h-[300px] w-full hover:scale-110 rounded-xl p-4"/> </div>
-<div className="ml-4 py-4">
- <h2 className="">Historical Tours</h2>
- <p className="text-[16px] font-normal">Traveling the world and visiting its most amazing historical sites is every architect’s dream
- </p>
- <p>Price $550</p>
- <div className="">
- <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
- <Link to='/beach'>View Details</Link>
-       </button>
- </div>
-</div>
-</div>  */}
-        {/* <div className="grid grid-cols-2 bg-base-100 shadow-xl">
-<div className="rounded-xl"><img src={im3} className=" h-[300px] w-full hover:scale-110 rounded-xl p-4"/> </div>
-<div className="ml-4 py-4">
- <h2 className="card-title">Wildlife Safaris</h2>
- <p className="text-[16px] font-normal">Embark on an exhilarating Wildlife Safari and experience the thrill of encountering majestic animals in their natural habitat
- </p>
- <p>Price $550</p>
- <div className="">
- <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
- <Link to='/beach'>View Details</Link>
-       </button>
- </div>
-</div>
-</div>  */}
-        {/* <div className="grid grid-cols-2 bg-base-100 shadow-xl">
-<div className="rounded-xl"><img src={im4} className=" h-[300px] w-full hover:scale-110 rounded-xl p-4"/> </div>
-<div className="ml-4 py-4">
- <h2 className="card-title">Adventure Tours</h2>
- <p className="text-[16px] font-normal">Unleash your inner explorer with our Adventure Tours, designed for thrill-seekers craving unforgettable experiences and adrenaline-pumping activities
- </p>
- <p>Price $550</p>
- <div className="">
- <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
- <Link to='/beach'>View Details</Link>
-       </button>
- </div>
-</div>
-</div>  */}
       </div>
 
       <div className="mx-auto text-center my-6"><Link>
