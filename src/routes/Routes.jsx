@@ -6,9 +6,9 @@ import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
 import Dashbroad from '../pages/Dashbroad/Dashbroad'
 import Home from '../components/Home/Home'
-import BeachHolyDay from '../components/Home/Tab/OurPackage/BeachHolyday/BeachHolyDay'
 import GuideDetails from '../components/Home/Tab/OurPackage/TourSection/GuideDetails'
 import PrivateRoute from './PrivateRoute'
+import PackageDetails from '../components/Home/Tab/OurPackage/BeachHolyday/PackageDetails'
 
 export const router = createBrowserRouter([
   {
@@ -22,8 +22,12 @@ export const router = createBrowserRouter([
       },
       {
         path: '/beach',
-        element: <BeachHolyDay></BeachHolyDay>,
+        element: <PackageDetails></PackageDetails>,
       },
+      // {
+      //   path: '/package',
+      //   element: <PackageDetails></PackageDetails>,
+      // },
       {
         path: '/beach/:id',
         element: <PrivateRoute><GuideDetails></GuideDetails></PrivateRoute>,

@@ -2,6 +2,7 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import OurPackage from './OurPackage/OurPackage';
+import TouristGuide from './OurPackage/TourSection/TouristGuide';
 
 
 const TouristTab = () => {
@@ -21,7 +22,7 @@ const TouristTab = () => {
     <OurPackage></OurPackage>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 3</h2>
+      <TouristGuide></TouristGuide>
     </TabPanel>
   </Tabs>
     </div>

@@ -10,11 +10,11 @@ import im9 from "../../../../../assets/images/wildlife-africa-tanzania-mammal.jp
 import im10 from "../../../../../assets/images/moru.jpg";
 import im11 from "../../../../../assets/images/statu.jpg";
 import im12 from "../../../../../assets/images/pic3.jpg";
-import TourSection from './../TourSection/TourSection';
-import TourPlan from './../TourSection/TourPlan';
-import TouristGuide from './../TourSection/TouristGuide';
+import TourSection from '../TourSection/TourSection';
+import TourPlan from '../TourSection/TourPlan';
+import TouristGuide from '../TourSection/TouristGuide';
 
-const BeachHolyDay = () => {
+const PackageDetails = () => {
   return (
     <div className="my-10"><div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 top-10">
     <div>
@@ -120,4 +120,4 @@ const BeachHolyDay = () => {
   );
 };
 
-export default BeachHolyDay;
+export default PackageDetails;
