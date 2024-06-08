@@ -10,6 +10,7 @@ import GuideDetails from "../components/Home/Tab/OurPackage/TourSection/GuideDet
 import PrivateRoute from "./PrivateRoute";
 import PackageDetails from "../components/Home/Tab/OurPackage/BeachHolyday/PackageDetails";
 import OurPackage from "../components/Home/Tab/OurPackage/OurPackage";
+import AllPackages from "../components/Home/Tab/OurPackage/AllPackages";
 
 export const router = createBrowserRouter([
   {
@@ -31,12 +32,12 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:8000/tour/${params.id}`),
       },
-      // {
-      //   path: "/:id",
-      //   element: <OurPackage></OurPackage>,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:8000/tourtype/${params.id}`),
-      // },
+      {
+        path: "/beach:id",
+        element: <OurPackage></OurPackage>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/tourtype/${params.id}`),
+      },
       {
         path: "/beach/:id",
         element: (
@@ -46,6 +47,12 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:8000/guide/${params.id}`),
+      },
+      {
+        path: "/allpackage",
+        element: <AllPackages></AllPackages>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/tourtype/${params.id}`),
       },
       {
         path: "/dashbroad",

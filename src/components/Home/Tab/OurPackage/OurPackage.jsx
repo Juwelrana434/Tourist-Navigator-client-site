@@ -107,7 +107,7 @@ const handleAddToWishList = (item) => {
 
       <div className="mx-auto text-center my-6"><Link>
         <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
-          <Link to="/beach">View Details</Link>
+          <Link to="/allpackage">View All Package</Link>
         </button>
       </Link></div>
     </div>
