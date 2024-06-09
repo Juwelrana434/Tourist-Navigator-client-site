@@ -1,0 +1,82 @@
+
+
+ [
+    {
+        "id": 1,
+        "tour_type": "Beach Holidays",
+        "title": "Journey Through the sea",
+        "touristName": "Emily Johnson",
+        "tourPackage": "Swiss Alps Adventure",
+        "dateOfTour": "July 2023",
+        "excerpt": "Our journey through the sea was nothing short of magical. From the stunning mountain vistas to the charming villages, every moment was breathtaking...",
+        "imageURL": "https://example.com/images/alps.jpg",
+        "storyDetail": "Full story about the journey through the Alps.",
+    "image_url": "https://5.imimg.com/data5/SELLER/Default/2024/5/414960320/RR/PA/US/216392001/beach-holiday-tour-package.jpg",
+    "price": "$550",
+    "image_1": "https://media.istockphoto.com/id/1328273804/photo/carefree-family-running-on-the-beach.jpg?s=612x612&w=0&k=20&c=qtQs_3MaE_zcX8EEdmbZI9EAvb2iU9Zv78ma_G8Sgak=",
+    "image_2": "https://www.ceyloninsidertravels.com/wp-content/uploads/2022/04/Luxury-Family-Beach-Holidays-to-Sri-Lanka-16.jpg",
+    "image_3": "https://images.trvl-media.com/localexpert/2071552/e0868f63-0fc4-4808-8f83-be80ada5b384.jpg?impolicy=resizecrop&rw=1005&rh=565",
+    "durations": "4 days 5 nights",
+    "Transport": "Air",
+    "location": ["Saint Martin", "Cox's Bazar"]
+    },
+    {
+        "id": 2,
+        "tour_type": "Wildlife Safaris",
+        "title": "Exploring Ancient Africa",
+        "touristName": "Michael Smith",
+        "tourPackage": "Roman History Tour",
+        "dateOfTour": "May 2022",
+        "excerpt": "Walking through the streets of Africa felt like stepping back in time. The Colosseum, the Forum, and the Pantheon were just a few of the highlights...",
+        "imageURL": "https://example.com/images/rome.jpg",
+        "storyDetail": "Full story about exploring ancient Rome.",
+        "image_url": "https://www.gorillatrekkingugandafromkigali.com/wp-content/uploads/2020/03/lake-Mburo-Zebras.jpg",
+    "price": "$550",
+    "image_1": "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/09/Masai-Mara-Safari-in-Kenya.jpg?resize=1200%2C676&ssl=1",
+    "image_2": "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/09/Kruger-National-Park-South-Africa.jpg?fit=1200%2C900&ssl=1",
+    "image_3": "https://www.rwandawildlifesafari.com/wp-content/uploads/2021/01/4-Days-Masai-Mara-Wildlife-safari.jpg",
+    "durations": "4 days 5 nights",
+    "Transport": "Air",
+    "location": ["Africa", "Africa"]
+    },
+    {
+        "id": 3,
+        "tour_type": "Historical Tours",
+        "title": "Parisian Romance",
+        "touristName": "Sarah Lee",
+        "tourPackage": "Parisian Romance",
+        "dateOfTour": "April 2023",
+        "excerpt": "Sarah shares her romantic getaway experience in Paris, highlighting the Eiffel Tower, Seine River cruise, and charming cafes.",
+        "imageURL": "https://example.com/images/paris.jpg",
+        "storyDetail": "Full story about Parisian romance.",
+        "price": "$550",
+    "image_1": "https://www.scotlandhistorytours.co.uk/img/tours/6.jpg",
+    "image_2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJtgvfwj6amrxp_LFdIUscHYS_ag7pxe10qg&s",
+    "image_3": "https://media.timeout.com/images/105625808/750/422/image.jpg",
+    "durations": "4 days 5 nights",
+    "Transport": "Air",
+    "location": ["Africa", "Itali", "New york","Finland"
+    
+    ]
+    },
+    {
+        "id": 4,
+        "tour_type": "Adventure Tours",
+        "title": "African Safari Adventure",
+        "touristName": "David Brown",
+        "tourPackage": "Safari Adventure",
+        "dateOfTour": "August 2022",
+        "excerpt": "David recounts his thrilling safari adventure in Kenya, including close encounters with wildlife and breathtaking landscapes.",
+        "imageURL": "https://example.com/images/safari.jpg",
+        "storyDetail": "Full story about the African safari adventure.",
+        "price": "$550",
+    "image_1": "https://www.researchdive.com/blogImages/IUZKdKwnwU.jpeg",
+    "image_2": "https://www.peakadventuretour.com/blog/wp-content/uploads/2018/06/Bungee-Jumping-in-India.jpg",
+    "image_3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFur5x2_hrP51C8kYVS_O72b224PGqKUX97Q&s",
+    "durations": "4 days 5 nights",
+    "Transport": "Air",
+    "location": ["Amazon", "Itali", "New york","Finland"
+    
+    ]
+    }
+    ]

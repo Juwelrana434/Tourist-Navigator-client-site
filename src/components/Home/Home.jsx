@@ -2,6 +2,7 @@
 import { Helmet } from 'react-helmet-async';
 import Banner from './Banner/Banner';
 import TouristTab from './Tab/TouristTab';
+import TourStore from './TouristStoreSection/TourStore';
 
 const Home = () => {
     return (
@@ -11,7 +12,8 @@ const Home = () => {
       </Helmet>
             <Banner></Banner>
             <TouristTab></TouristTab>
-        </div>
+            <TourStore></TourStore>        
+            </div>
     );
 };
 

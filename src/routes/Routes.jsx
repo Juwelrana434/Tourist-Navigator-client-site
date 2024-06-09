@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import PackageDetails from "../components/Home/Tab/OurPackage/BeachHolyday/PackageDetails";
 import OurPackage from "../components/Home/Tab/OurPackage/OurPackage";
 import AllPackages from "../components/Home/Tab/OurPackage/AllPackages";
+import AllStrory from "../components/Home/TouristStoreSection/AllStrory";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
         element: <AllPackages></AllPackages>,
         loader: ({ params }) =>
           fetch(`http://localhost:8000/tourtype/${params.id}`),
+      },
+      {
+        path: "/AllStory",
+        element: <AllStrory></AllStrory>,
       },
       {
         path: "/dashbroad",
