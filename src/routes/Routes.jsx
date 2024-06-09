@@ -12,6 +12,7 @@ import PackageDetails from "../components/Home/Tab/OurPackage/BeachHolyday/Packa
 import OurPackage from "../components/Home/Tab/OurPackage/OurPackage";
 import AllPackages from "../components/Home/Tab/OurPackage/AllPackages";
 import AllStrory from "../components/Home/TouristStoreSection/AllStrory";
+import TourStoryDetails from './../components/Home/TouristStoreSection/TourStoryDetails';
 
 export const router = createBrowserRouter([
   {
@@ -23,15 +24,15 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      // {
+      //   path: "/beach",
+      //   element: <PackageDetails></PackageDetails>,
+      // },
       {
-        path: "/beach",
-        element: <PackageDetails></PackageDetails>,
-      },
-      {
-        path: "/tour/:id", 
+        path: "/tourtype/:id", 
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/tour/${params.id}`),
+          fetch(`http://localhost:8000/tourtype/${params.id}`),
       },
       {
         path: "/beach:id",
@@ -58,6 +59,17 @@ export const router = createBrowserRouter([
       {
         path: "/AllStory",
         element: <AllStrory></AllStrory>,
+        
+      },
+      {
+        path: "/tourstory/:id",
+        element: (
+          <PrivateRoute>
+            <TourStoryDetails></TourStoryDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/tourstory/${params.id}`),
       },
       {
         path: "/dashbroad",

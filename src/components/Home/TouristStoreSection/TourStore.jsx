@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const TourStore = () => {
     const [stores, setStore] = useState([]);
     useEffect(() => {
-      fetch("store.json")
+      fetch("http://localhost:8000/tourstory")
         .then((res) => res.json())
         .then((data) => setStore(data));
     }, []);
@@ -13,13 +13,13 @@ const TourStore = () => {
     return (
         <div>
         <h1 className="text-center text-[25px] font-bold my-10">Our Latest Tour Story</h1>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:lg:grid-cols-2 gap-4">
         {stores.map((store) => (
           <div
             key={store._id}
            
           >
-          <Link  to={`story/${store.id}`}  className="grid lg:md:grid-cols-2 bg-base-100 shadow-xl">
+          <Link  to={`tourstory/${store._id}`}  className="grid lg:md:grid-cols-2 bg-base-100 shadow-xl">
           <div className="ml-4 py-4">
             <div className="chat chat-start">
   <div className="chat-image avatar">

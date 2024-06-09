@@ -19,7 +19,7 @@ const shareUrl = window.location.href
     }, []);
     return (
         <div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:md:grid-cols-2 gap-4">
         {stores.map((store) => (
           <div
             key={store._id}

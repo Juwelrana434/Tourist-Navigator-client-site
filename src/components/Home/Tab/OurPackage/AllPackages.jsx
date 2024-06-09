@@ -94,7 +94,7 @@ const AllPackages = () => {
               <p>Price $550</p>
               <div className="">
                 <button className="text-xl font-semibold text-[#BB8506] p-3 border-b-4 rounded-xl border-[#BB8506] bg-[#F3F3F3] my-4 hover:bg-[#161716]">
-                  <Link  to={`tour/${tourType._id}`}>Book Now</Link>
+                  <Link  to={`tourtype/${tourType._id}`}>Book Now</Link>
                 </button>
               </div>
             </div>
