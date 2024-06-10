@@ -11,6 +11,7 @@ const AllPackages = () => {
         .then((res) => res.json())
         .then((data) => setTourTypes(data));
     }, []);
+    
     return (
         <div>
           {/* <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 top-10">

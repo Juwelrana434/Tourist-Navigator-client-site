@@ -10,16 +10,18 @@ const TouristTab = () => {
     <div className='lg:text-xl md:text-sm text-[12px] font-bold text-black mt-10'>
       <Tabs>
     <TabList>
-      <Tab>Overview</Tab>
+      
       <Tab>Our Packages</Tab>
+      <Tab>Overview</Tab>
       <Tab>Meet our Tour Guide</Tab>
     </TabList>
 
-    <TabPanel>
-     <h2>content 01</h2>
-    </TabPanel>
+    
     <TabPanel>
     <OurPackage></OurPackage>
+    </TabPanel>
+    <TabPanel>
+     <h2>content 01</h2>
     </TabPanel>
     <TabPanel>
       <TouristGuide></TouristGuide>

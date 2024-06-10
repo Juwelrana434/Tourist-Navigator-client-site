@@ -5,6 +5,7 @@ import TouristTab from './Tab/TouristTab';
 import TourStore from './TouristStoreSection/TourStore';
 import TourType from './Tab/OurPackage/TourType';
 
+
 const Home = () => {
     return (
         <div>
@@ -14,7 +15,8 @@ const Home = () => {
             <Banner></Banner>
             <TouristTab></TouristTab>
             <TourType></TourType>
-            <TourStore></TourStore>        
+            <TourStore></TourStore>
+       
             </div>
     );
 };
