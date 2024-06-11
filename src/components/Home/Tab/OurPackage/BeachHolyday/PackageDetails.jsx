@@ -74,6 +74,7 @@ const PackageDetails = () => {
       GuideName,
       to,
       from,
+      price
     }; // Fixed property name
     // console.log(addComment);
 
@@ -183,7 +184,7 @@ const PackageDetails = () => {
               <br />
               <input
                 type="number"
-                name="number"
+                name="price"
                 placeholder=
                 {price}
                 className="w-full p-3 mt-4"

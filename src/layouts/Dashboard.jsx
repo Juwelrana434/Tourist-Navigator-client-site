@@ -19,6 +19,10 @@ const Dashboard = () => {
         <ul className="pl-4">
           <li>
            
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+           
             <NavLink to="/dashbroad/profile">MyProfile</NavLink>
           </li>
           <li>
@@ -38,7 +42,7 @@ const Dashboard = () => {
         </div>
       </div>
       {/* dashboard content */}
-      <div className="flex-1 md:ml-64">
+      <div className="flex-1 md:ml-10">
         <div className="p-5">
           <Outlet />
         </div>
