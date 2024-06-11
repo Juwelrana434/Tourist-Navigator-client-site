@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 // import useCart from "../hooks/useCart";
 // import useAdmin from './../hooks/useAdmin';
 //import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
-// import MyProfile from './../pages/Dashbroad/MyProfile';
+
 
 const Dashboard = () => {
   const { logOut } = useAuth();
@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div className="relative min-h-screen lg:md:flex flex-row">
       {/* dashboard side bar */}
-      <div className="w-64 min-h-screen bg-orange-400">
+      <div className="w-64 min-h-screen bg-blue-500 text-white">
         <ul className="pl-4">
           <li>
            

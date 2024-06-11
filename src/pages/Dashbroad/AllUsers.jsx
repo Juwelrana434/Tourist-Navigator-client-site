@@ -77,7 +77,7 @@ const AllUsers = () => {
             {users.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
-                <td>{user.name}</td>
+                <td>{user.displayName}</td>
                 <td>{user.email}</td>
                 <td>
                   {user.role === "admin" ? (
@@ -85,7 +85,7 @@ const AllUsers = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-lg bg-orange-500"
+                      className="btn btn-lg bg-blue-500"
                     >
                       <FaUsers
                         className="text-white 
