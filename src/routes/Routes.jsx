@@ -16,6 +16,7 @@ import MyProfile from "../pages/Dashbroad/MyProfile";
 import MyBooking from "../pages/Dashbroad/MyBooking";
 import WishList from "../pages/Dashbroad/WishList";
 import GuideProfile from "../pages/Dashbroad/GuideProfile";
+import AllUsers from "../pages/Dashbroad/AllUsers";
 
 
 
@@ -101,6 +102,10 @@ export const router = createBrowserRouter([
       {
         path: 'guideprofile',
         element: <GuideProfile></GuideProfile>,
+      },
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>,
       },
     ],
   },

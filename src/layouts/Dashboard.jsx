@@ -23,6 +23,10 @@ const Dashboard = () => {
           </li>
           <li>
            
+            <NavLink to="/dashbroad/users">All users</NavLink>
+          </li>
+          <li>
+           
             <NavLink to="/dashbroad/profile">MyProfile</NavLink>
           </li>
           <li>
