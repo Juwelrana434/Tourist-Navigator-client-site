@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useLoaderData } from 'react-router-dom';
 
 const OurPackage = () => {
   const [tourTypes, setTourTypes] = useState([]);
@@ -16,9 +17,10 @@ const OurPackage = () => {
       .then((res) => res.json())
       .then((data) => setTourTypes(data));
   }, []);
-   
-  //  const {_id,image_url, tour_type, trip_title} = tourTypes;
+  //  const tour = useLoaderData();
+  //  const {_id, image_url, tour_type, trip_title} = tour;
 console.log(tourTypes);
+// console.log(tour);
 //   add to wish list 
 
 const { user } = useAuth();
@@ -38,6 +40,7 @@ const handleAddToWishList = (item) => {
          
          
       }
+      console.log(WishListItem);
       axiosSecure.post('/wishList', WishListItem)
           .then(res => {
               console.log(res.data)

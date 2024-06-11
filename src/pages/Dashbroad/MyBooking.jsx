@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
+// import { FaTrashAlt } from "react-icons/fa";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 

@@ -15,6 +15,7 @@ import Dashboard from './../layouts/Dashboard';
 import MyProfile from "../pages/Dashbroad/MyProfile";
 import MyBooking from "../pages/Dashbroad/MyBooking";
 import WishList from "../pages/Dashbroad/WishList";
+import GuideProfile from "../pages/Dashbroad/GuideProfile";
 
 
 
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
       {
         path: 'wishlist',
         element: <WishList></WishList>,
+      },
+      {
+        path: 'guideprofile',
+        element: <GuideProfile></GuideProfile>,
       },
     ],
   },

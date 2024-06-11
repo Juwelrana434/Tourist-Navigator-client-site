@@ -33,6 +33,10 @@ const Dashboard = () => {
            
             <NavLink to="/dashbroad/wishlist">Wish List</NavLink>
           </li>
+          <li>
+           
+            <NavLink to="/dashbroad/guideprofile">Profile</NavLink>
+          </li>
         </ul>
         <div
           onClick={logOut}

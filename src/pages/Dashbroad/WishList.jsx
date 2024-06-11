@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const WishList = () => {
@@ -24,7 +25,7 @@ const WishList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`/wishlist/${id}`)
+                axiosSecure.delete(`/wishList/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             // refetch();
@@ -77,8 +78,8 @@ const WishList = () => {
                                 <td>
                                     {item.tour_type}
                                 </td>
-                                <td>{item.GuideName}</td>
-                                <td>{item.from}</td>
+                               
+                               
                                 <td>{item.price}</td>
                                 <th>
                                     <button
@@ -86,11 +87,11 @@ const WishList = () => {
                                         className="btn btn-ghost btn-lg">
                                       <FaTrashAlt className="text-red-700"/>
                                     </button>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
+                                    <Link to={`tourtype/${item._id}`}><button
+                                        
                                         className="btn btn-ghost btn-lg">
                                        Details
-                                    </button>
+                                    </button></Link>
                                     
                                 </th>
                                
