@@ -94,6 +94,7 @@ const AllUsers = () => {
                     </button>
                   )}
                 </td>
+                
                 <td>
                   <button
                     onClick={() => handleDeleteUser(user)}
