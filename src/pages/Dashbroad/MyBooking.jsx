@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 // import { FaTrashAlt } from "react-icons/fa";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const MyBooking = () => {
+const {user} = useAuth();
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:8000/booking")
+      fetch(`http://localhost:8000/booking/${user?.email}`)
+    //   fetch('http://localhost:8000/booking')
         .then((res) => res.json())
         .then((data) => setBookings(data));
     }, []);
-    
+    console.log(bookings);
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

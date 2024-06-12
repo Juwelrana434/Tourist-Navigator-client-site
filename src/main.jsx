@@ -25,3 +25,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AuthProvider>
   </HelmetProvider>
 )
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <HelmetProvider>
+//     <AuthProvider>
+//     <QueryClientProvider client={queryClient}>
+//       <RouterProvider router={router} />
+//       <Toaster />
+//       </QueryClientProvider>
+//     </AuthProvider>
+//   </HelmetProvider>
+// )

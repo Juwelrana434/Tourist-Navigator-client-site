@@ -3,16 +3,19 @@ import Swal from "sweetalert2";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 const WishList = () => {
     const [bookings, setBookings] = useState([]);
+    const {user} = useAuth();
     useEffect(() => {
-      fetch("http://localhost:8000/wishList")
+      fetch(`http://localhost:8000/wishList/${user?.email}`)
+    //   fetch("http://localhost:8000/wishList")
         .then((res) => res.json())
         .then((data) => setBookings(data));
     }, []);
-    
+    console.log(bookings);
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

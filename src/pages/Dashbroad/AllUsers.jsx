@@ -1,24 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 
+import { useEffect, useState } from "react";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
-import useAxiosSecures from "../../hooks/useAxiosSecures";
+import { axiosSecure } from "../../hooks/useAxiosSecure";
+// import useAxiosSecures from "../../hooks/useAxiosSecures";
 
 const AllUsers = () => {
-  const axiosSecures = useAxiosSecures();
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecures.get("/users"); 
-      return res.data;
-    },
-  });
+  // const axiosSecures = useAxiosSecures();
+  // const { data: users = [], refetch } = useQuery({
+  //   queryKey: ["users"],
+  //   queryFn: async () => {
+  //     const res = await axiosSecures.get("/users"); 
+  //     return res.data;
+  //   },
+  // });
 
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+      fetch("http://localhost:8000/users")
+        .then((res) => res.json())
+        .then((data) => setUsers(data));
+    }, []);
+    console.log(users);
   const handleMakeAdmin = (user) => {
-    axiosSecures.patch(`/users/admin/${user._id}`).then((res) => {
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
-        refetch();
+        // refetch();
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -41,14 +50,16 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecures.delete(`/users/${user._id}`).then((res) => {
+        axiosSecure.delete(`/users/${user._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
-            refetch();
+            // refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
               icon: "success",
             });
+            const remain = users.filter(tour =>tour._id !==user._id);
+              setUsers(remain);
           }
         });
       }
@@ -93,7 +104,7 @@ const AllUsers = () => {
                       ></FaUsers>
                     </button>
                   )}
-                </td>
+                </td >
                 
                 <td>
                   <button

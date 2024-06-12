@@ -1,38 +1,39 @@
 import { NavLink, Outlet } from "react-router-dom";
 import MyProfile from "../pages/Dashbroad/MyProfile";
 import useAuth from "../hooks/useAuth";
+import useRole from "../hooks/useRole";
 // import useCart from "../hooks/useCart";
-import useAdmin from './../hooks/useAdmin';
+// import useAdmin from './../hooks/useAdmin';
 //import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 
 
 const Dashboard = () => {
   const { logOut } = useAuth();
+  const role = useRole();
   //   const [cart] = useCart();
   // TODO: get isAdmin value from the database
-    const [isAdmin] = useAdmin();
-
+    // const [isAdmin] = useAdmin();
+console.log(role);
   return (
     <div className="relative min-h-screen lg:md:flex flex-row">
       {/* dashboard side bar */}
       <div className="w-64 min-h-screen bg-blue-500 text-white">
         <ul className="pl-4">
         
-        {
-                isAdmin ? <>
+        
                     <li>
            
            <NavLink to="/dashbroad/users">All users</NavLink>
          </li>
-                </>
-                    :
-                    <>
+                
+                  
+                    
                       <li>
            
            <NavLink to="/">Home</NavLink>
          </li>
-                    </>
-            }
+                    
+            
           <li>
            
             <NavLink to="/">Home</NavLink>
