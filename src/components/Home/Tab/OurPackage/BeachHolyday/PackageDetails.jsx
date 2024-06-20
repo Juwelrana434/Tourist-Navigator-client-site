@@ -211,11 +211,12 @@ const PackageDetails = () => {
               </select>
               
               <br />
+              
               <select name="guideemail" className="w-full p-2 mt-4 mb-4">
                 <option>{<ul>{roles.map((item) => (
         <li key={item._id}>{item.email}</li>
       ))}
-    </ul>}</option>
+    </ul>}  {user.email}</option>
                
               </select>
               <br />

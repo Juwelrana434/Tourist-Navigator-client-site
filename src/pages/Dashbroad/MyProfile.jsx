@@ -161,42 +161,18 @@
 // export default MyProfile;
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { imageUpload } from "../../api/utils";
+
 import useRole from "../../hooks/useRole";
-import { useQuery, useMutation } from "@tanstack/react-query";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+
 import { useState } from "react";
 
 const MyProfile = () => {
   const { user } = useAuth();
   const [role] = useRole();
-  const axiosSecure = useAxiosSecure();
+ 
   const [loading, setLoading] = useState(false);
 
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/users");
-      return res.data;
-    },
-  });
-
-  const handleMakeRequest = async (user) => {
-    axiosSecure.patch(`/user/guide/${user._id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount > 0) {
-        refetch();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `${user.name} is an Admin Now!`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
-  };
-
+  
   const handleAddStory = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -232,20 +208,22 @@ const MyProfile = () => {
       setLoading(false);
     }
   };
-// const {status} = users;
+
   return (
     <div>
-    <p>{users.length}</p>
+    
       <div className="flex gap-6">
-        <img src={user.photoURL} className="" alt={`${user.displayName}`} />
+        <img src={user.photoURL} className="w-32 h-32" alt={`${user.displayName}`} />
         <div>
-          <h1>{user.email}</h1>
-          <h1>{user.displayName}</h1>
+        <h1> Name :{user.displayName}</h1>
+          <h1>Email :{user.email}</h1>
+          <p>Role : {role}</p>
         </div>
       </div>
       <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
-        <p>{role}</p>
+       
       </div>
+   
       <div>
         <div className="text-black font-bold mx-auto w-full m-4">
           <h1 className="text-center pt-6 text-[25px]">Make A Story</h1>
@@ -298,31 +276,6 @@ const MyProfile = () => {
           </form>
         </div>
       </div>
-      {/* {users.map((user) => (
-              <tr key={user._id}>
-                
-                <td>
-                  {
-                    <button
-                      onClick={() => handleMakeRequest(user)}
-                      className="btn btn-lg bg-blue-500"
-                    >
-                     {user.status}
-                    </button>
-                  }
-                
-                </td>
-                
-               
-              </tr>
-            ))} */}
-            
-            <button
-                      onClick={() => handleMakeRequest(user)}
-                      className="btn btn-lg bg-blue-500"
-                    >
-                     Request to guide
-                    </button>
     </div>
   );
 };

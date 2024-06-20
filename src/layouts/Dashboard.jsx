@@ -8,6 +8,7 @@ import GuideMenu from "../pages/Dashbroad/Menu/GuideMenu";
 import Navbar from './../components/Shared/Navbar/Navbar';
 
 
+
 const Dashboard = () => {
   const { logOut } = useAuth();
   const [role] = useRole()
@@ -66,6 +67,7 @@ console.log(role);
       >
         <p >Logout</p>
       </div>
+    
     </div>
     {/* dashboard content */}
     <div className="flex-1 md:ml-10">

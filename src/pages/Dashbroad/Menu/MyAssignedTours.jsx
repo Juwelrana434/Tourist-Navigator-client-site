@@ -9,10 +9,12 @@ import useAuth from "../../../hooks/useAuth";
 // import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { axiosSecure } from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 // import toast from "react-hot-toast";
 
 const MyAssignedTours = () => {
+
  
   const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
@@ -27,7 +29,19 @@ const MyAssignedTours = () => {
   const handleStatus = async (id, prevStatus, status) => {
     console.log(id, prevStatus, status);
     if (prevStatus === status) return console.log("Sry vai.. hobena");
-    axiosSecure.patch(`/book/${id}`, { status });
+    axiosSecure.patch(`/book/${id}`, { status }).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+      
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "tour status updated",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   
     
   };
@@ -77,12 +91,12 @@ const MyAssignedTours = () => {
                     >
                       Accept
                     </button>
-                    {/* Reject Button */}
+                    {/* Reject Button */} 
                     <button
                       onClick={() =>
                         handleStatus(item._id, item.status, "Rejected")
                       }
-                      disabled={item.status === "Rejected"}
+                      disabled={item.status === "Accepted"}
                       className="disabled:cursor-not-allowed text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none"
                     >
                       Reject

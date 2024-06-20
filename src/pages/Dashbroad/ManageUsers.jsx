@@ -216,8 +216,9 @@ const ManageUsers = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th>Role</th>
-              <th>Status</th>
+              <th colSpan={2}>Role</th>
+              {/* <th>Status</th> */}
+              <th> Change Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -228,14 +229,20 @@ const ManageUsers = () => {
                 <td>{user.displayName}</td>
                 <td>{user.email}</td>
                 <td>
+                  
+                     {user.role}
+                   
+                
+                </td>
+                <td>
                   {user.role === "admin" ? (
                     "Admin"
                   ) : (
-                    <button
+                    <button className="btn btn-primary"
                       onClick={() => handleMakeAdmin(user)}
                      
                     >
-                     {user.role}
+                    Make Admin
                     </button>
                   )}
                   {/* {user.role} */}
@@ -244,8 +251,9 @@ const ManageUsers = () => {
                 {user.role === "admin" ? ("Not applicable"):(<button
                       onClick={() => handleMakeGuide(user)}
                     
+                    className="btn btn-accent"
                     >
-                      {user.status}
+                     Make guide
                     </button>
                 )}
                     

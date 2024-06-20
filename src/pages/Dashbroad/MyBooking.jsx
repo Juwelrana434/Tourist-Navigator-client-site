@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const MyBooking = () => {
 const {user} = useAuth();
@@ -14,6 +15,7 @@ const {user} = useAuth();
         .then((data) => setBookings(data));
     }, []);
     console.log(bookings);
+   
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -42,8 +44,10 @@ const {user} = useAuth();
             }
         });
     }
+    if (bookings.length > 3) {toast.success('Congratulations You have successfully won discount')}
     return (
         <div>
+        
            <div className="overflow-x-auto">
                 <table className="table  w-full">
                     {/* head */}
@@ -90,29 +94,14 @@ const {user} = useAuth();
                                     <p>{item.status}</p>    
                                    
                                     
-                                    {/* {item.status === "Accepted" ? (""):( <p
-                                        
-                                        className="btn btn-ghost btn-lg">
-                                       Reject
-                                    </p>
-                )} */}
+                                    
                                     {item.status === "In Review" ? (<button
                                         onClick={() => handleDelete(item._id)}
                                         className="btn btn-ghost btn-lg">
                                        Cancel
                                     </button>):( ''
                 )}
-                                    {/* <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg">
-                                       Accepted
-                                    </button> */}
-                                    {/* <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg">
-                                       Cancel
-                                    </button> */}
-                                    
+                                   
                                 </th>
                                 <th>
                                 {item.status === "Accepted" ? (<button
