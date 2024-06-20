@@ -4,7 +4,7 @@ import useRole from "../hooks/useRole";
 import AdminMenu from "../pages/Dashbroad/Menu/AdminMenu";
 import TouristMenu from './../pages/Dashbroad/Menu/TouristMenu';
 import GuideMenu from "../pages/Dashbroad/Menu/GuideMenu";
-//import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+
 import Navbar from './../components/Shared/Navbar/Navbar';
 
 

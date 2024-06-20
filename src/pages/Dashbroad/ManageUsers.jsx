@@ -245,7 +245,7 @@ const ManageUsers = () => {
                     Make Admin
                     </button>
                   )}
-                  {/* {user.role} */}
+                
                 </td>
                 <td>
                 {user.role === "admin" ? ("Not applicable"):(<button
