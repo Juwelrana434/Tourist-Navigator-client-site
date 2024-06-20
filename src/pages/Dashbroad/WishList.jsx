@@ -9,6 +9,7 @@ import useAuth from "../../hooks/useAuth";
 const WishList = () => {
     const [bookings, setBookings] = useState([]);
     const {user} = useAuth();
+    // const navigate = useNavigate();
     useEffect(() => {
       fetch(`http://localhost:8000/wishList/${user?.email}`)
     //   fetch("http://localhost:8000/wishList")
@@ -44,6 +45,7 @@ const WishList = () => {
             }
         });
     }
+  
     return (
         <div>
          <div className="overflow-x-auto">
@@ -90,11 +92,11 @@ const WishList = () => {
                                         className="btn btn-ghost btn-lg">
                                       <FaTrashAlt className="text-red-700"/>
                                     </button>
-                                    <Link to={`tourtype/${item._id}`}><button
+                                    <Link to={`/tourtype/${item.list}`}><button
                                         
                                         className="btn btn-ghost btn-lg">
                                        Details
-                                    </button></Link>
+                                    </button> </Link>
                                     
                                 </th>
                                
@@ -110,3 +112,5 @@ const WishList = () => {
 };
 
 export default WishList;
+
+// navigate('/{`tourtype/${item.list}`}', { state: { from: location } })

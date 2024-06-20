@@ -129,12 +129,14 @@
 
 
 // import { useEffect, useState } from "react";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+
+import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-const AllUsers = () => {
+
+const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
   
   const { data: users = [], refetch } = useQuery({
@@ -154,6 +156,21 @@ const AllUsers = () => {
           position: "top-end",
           icon: "success",
           title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+  const handleMakeGuide = (user) => {
+    axiosSecure.patch(`/users/guide/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.name} is an Guide Now!`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -200,6 +217,7 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -215,11 +233,23 @@ const AllUsers = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-lg bg-blue-500"
+                     
                     >
-                      <FaUsers className="text-white text-2xl" />
+                     {user.role}
                     </button>
                   )}
+                  {/* {user.role} */}
+                </td>
+                <td>
+                {user.role === "admin" ? ("Not applicable"):(<button
+                      onClick={() => handleMakeGuide(user)}
+                    
+                    >
+                      {user.status}
+                    </button>
+                )}
+                    
+                  
                 </td>
                 <td>
                   <button
@@ -233,9 +263,11 @@ const AllUsers = () => {
             ))}
           </tbody>
         </table>
+        
+
       </div>
     </div>
   );
 };
 
-export default AllUsers;
+export default ManageUsers;

@@ -4,11 +4,11 @@
 // import im4 from "../../../../assets/images/adventure.jpg"
 import { GoHeartFill } from "react-icons/go";
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useLoaderData } from 'react-router-dom';
+// import { useLoaderData } from 'react-router-dom';
 
 const OurPackage = () => {
   const [tourTypes, setTourTypes] = useState([]);
@@ -24,9 +24,9 @@ console.log(tourTypes);
 //   add to wish list 
 
 const { user } = useAuth();
-const navigate = useNavigate();
-const location = useLocation();
-const axiosSecure = useAxiosSecure();
+// const navigate = useNavigate();
+// const location = useLocation();
+// const axiosSecure = useAxiosSecure();
 // const [, refetch] = useCart();
 
 const handleAddToWishList = (item) => {
@@ -35,46 +35,78 @@ const handleAddToWishList = (item) => {
       const WishListItem = {
         
         email: user.email,
-       ...item
-          
-         
-         
+       list: item._id,
+       tour_type: item.tour_type,
+       trip_title: item.trip_title,
+       image_url: item.image_url,
+       image_1: item.image_1, 
+       image_2: item.image_2, 
+       image_3: item.image_3, 
+       durations: item.durations,
+       price: item.price, 
+       descriptions: item.descriptions, 
+       location: item.location,
+       Transport: item.Transport
+       
       }
-      console.log(WishListItem);
-      axiosSecure.post('/wishList', WishListItem)
-          .then(res => {
-              console.log(res.data)
-              if (res.data.insertedId) {
-                  Swal.fire({
-                      position: "top-end",
-                      icon: "success",
-                      title: `${item.tour_type} added to your cart`,
-                      showConfirmButton: false,
-                      timer: 1500
-                  });
-                  // refetch cart to update the cart items count
-                //   refetch();
-              }
+      
+      
+      
+//           console.log(WishListItem);
+//               axiosSecure.post('/wishList', WishListItem)
+//           .then(res => {
+//              console.log(res.data)
+//                if (res.data.insertedId) 
+              
+//               {
+//                   Swal.fire({
+//                       position: "top-end",
+//                       icon: "success",
+//                       title: `${item.tour_type} added to your cart`,
+//                       showConfirmButton: false,
+//                       timer: 1500
+//                   });
+//                   refetch cart to update the cart items count
+//                   refetch();
+//               }
 
-          })
-  }
-  else {
+//           })
+//   }
+//   else {
+//       Swal.fire({
+//           title: "You are not Logged In",
+//           text: "Please login to add to the cart?",
+//           icon: "warning",
+//           showCancelButton: true,
+//           confirmButtonColor: "#3085d6",
+//           cancelButtonColor: "#d33",
+//           confirmButtonText: "Yes, login!"
+//       }).then((result) => {
+//           if (result.isConfirmed) {
+//               //   send the user to the login page
+//               navigate('/login', { state: { from: location } })
+//           }
+//       });
+//   }
+// }
+fetch("http://localhost:8000/wishList", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify( WishListItem),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    if (data.insertedId) {
       Swal.fire({
-          title: "You are not Logged In",
-          text: "Please login to add to the cart?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, login!"
-      }).then((result) => {
-          if (result.isConfirmed) {
-              //   send the user to the login page
-              navigate('/login', { state: { from: location } })
-          }
+        title: "Success!",
+        text: "Add to wish list successfully",
+        icon: "success",
+        confirmButtonText: "Cool",
       });
-  }
-}
+    }
+  });
+}};
   return (
     <div>
       <div className="grid grid-cols-2 gap-4">

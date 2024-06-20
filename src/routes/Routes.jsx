@@ -16,7 +16,10 @@ import MyProfile from "../pages/Dashbroad/MyProfile";
 import MyBooking from "../pages/Dashbroad/MyBooking";
 import WishList from "../pages/Dashbroad/WishList";
 import GuideProfile from "../pages/Dashbroad/GuideProfile";
-import AllUsers from "../pages/Dashbroad/AllUsers";
+import ManageUsers from "../pages/Dashbroad/ManageUsers";
+import AddTour from './../pages/Dashbroad/AddTour';
+import Profile from "../pages/Dashbroad/Menu/Profile";
+import MyAssignedTours from "../pages/Dashbroad/Menu/MyAssignedTours";
 
 
 
@@ -88,7 +91,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        path: 'profile',
+        path: 'myprofile',
         element: <MyProfile></MyProfile>,
       },
       {
@@ -105,7 +108,24 @@ export const router = createBrowserRouter([
       },
       {
         path: 'users',
-        element: <AllUsers></AllUsers>,
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: 'addtour',
+        element: <AddTour></AddTour>,
+      },
+      {
+        path: 'profile',
+        element: <Profile></Profile>,
+      },
+      {
+        path: 'assigned',
+        element: <MyAssignedTours></MyAssignedTours>,
+        
+      },
+      {
+        path: 'addtour',
+        element: <AddTour></AddTour>,
       },
     ],
   },

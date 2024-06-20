@@ -22,7 +22,7 @@ const {user} = useAuth();
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -85,29 +85,42 @@ const {user} = useAuth();
                                 <td>{item.from}</td>
                                 <td>{item.price}</td>
                                 <th>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
+                               
+                                
+                                    <p>{item.status}</p>    
+                                   
+                                    
+                                    {/* {item.status === "Accepted" ? (""):( <p
+                                        
                                         className="btn btn-ghost btn-lg">
-                                       In Review
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg">
-                                       Accepted
-                                    </button>
-                                    <button
+                                       Reject
+                                    </p>
+                )} */}
+                                    {item.status === "In Review" ? (<button
                                         onClick={() => handleDelete(item._id)}
                                         className="btn btn-ghost btn-lg">
                                        Cancel
-                                    </button>
+                                    </button>):( ''
+                )}
+                                    {/* <button
+                                        onClick={() => handleDelete(item._id)}
+                                        className="btn btn-ghost btn-lg">
+                                       Accepted
+                                    </button> */}
+                                    {/* <button
+                                        onClick={() => handleDelete(item._id)}
+                                        className="btn btn-ghost btn-lg">
+                                       Cancel
+                                    </button> */}
                                     
                                 </th>
                                 <th>
-                                    <button
+                                {item.status === "Accepted" ? (<button
                                         onClick={() => handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg">
+                                        className="btn btn-primary">
                                        Payment
-                                    </button>
+                                    </button>):(''
+                )}
                                 </th>
                             </tr>)
                         }

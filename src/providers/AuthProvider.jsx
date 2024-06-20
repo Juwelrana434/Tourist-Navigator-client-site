@@ -41,13 +41,17 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email)
   }
 
-  const logOut = async () => {
-    setLoading(true)
-    await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
-      withCredentials: true,
-    })
-    return signOut(auth)
-  }
+  // const logOut = async () => {
+  //   setLoading(true)
+  //   await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
+  //     withCredentials: true,
+  //   })
+  //   return signOut(auth)
+  // }
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+}
 
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
@@ -56,14 +60,14 @@ const AuthProvider = ({ children }) => {
     })
   }
   // Get token from server
-  const getToken = async email => {
-    const { data } = await axios.post(
-      `${import.meta.env.VITE_API_URL}/jwt`,
-      { email },
-      { withCredentials: true }
-    )
-    return data
-  }
+  // const getToken = async email => {
+  //   const { data } = await axios.post(
+  //     `${import.meta.env.VITE_API_URL}/jwt`,
+  //     { email },
+  //     { withCredentials: true }
+  //   )
+  //   return data
+  // }
 
  // save user
  const saveUser = async user => {
@@ -85,7 +89,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       if (currentUser) {
-        getToken(currentUser.email)
+        // getToken(currentUser.email)
         saveUser(currentUser)
       }
       setLoading(false)

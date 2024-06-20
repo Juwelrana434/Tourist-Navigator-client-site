@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import {
     FacebookShareButton,
@@ -27,6 +28,9 @@ const {tour_type,
     console.log(story);
     return (
         <div>
+        <Helmet>
+        <title>Tour Details</title>
+      </Helmet>
             <div
         
            

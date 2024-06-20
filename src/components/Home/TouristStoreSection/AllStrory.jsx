@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import {
     FacebookShareButton,
     FacebookIcon,
@@ -19,6 +20,9 @@ const shareUrl = window.location.href
     }, []);
     return (
         <div>
+        <Helmet>
+        <title>Stroy</title>
+      </Helmet>
           <div className="grid lg:md:grid-cols-2 gap-4">
         {stores.map((store) => (
           <div

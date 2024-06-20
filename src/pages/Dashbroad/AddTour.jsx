@@ -1,129 +1,132 @@
+import { useForm } from "react-hook-form";
 
+import useAxiosPublic from "./../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-// const AddTour = () => {
-//     const handleAddComment = (event) => {
-//         event.preventDefault();
-//         const form = event.target;
-//         const name = user.displayName;
-//         const photo = user.photoURL;
-//         const email = user.email;
-//         const to = dates.endDate
-//         const from = dates.startDate
-//         const GuideName = form.Guide.value;
-    
-//         const booking = {
-         
-          
-//           email,
-//           photo,
-//           name,
-//           tour_type,
-//           trip_title,
-//           image_url,
-//           durations,
-//           Transport,
-//           location,
-//           GuideName,
-//           to,
-//           from,
-//           price
-//         }; // Fixed property name
-//         // console.log(addComment);
-    
-    
-    
-//         // send to server
-    
-//         fetch("http://localhost:8000/booking", {
-//           method: "POST",
-//           headers: { "Content-Type": "application/json" },
-//           body: JSON.stringify(booking),
-//         })
-//           .then((res) => res.json())
-//           .then((data) => {
-//             // console.log(data);
-//             if (data.insertedId) {
-//               Swal.fire({
-//                 title: "Success!",
-//                 text: "Add Booking successfully",
-//                 icon: "success",
-//                 confirmButtonText: "Cool",
-//               });
-//             }
-//           });
-//       };
-//     return (
-//         <div>
-//             <div>
-//         <div className=" text-black font-bold mx-auto  w-full m-4">
-//           <h1 className="text-center pt-6 text-[25px]">Book Your Tour</h1>
+const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-//           <form onSubmit={handleAddComment}>
-//           <div className="grid lg:grid-cols-2 gap-6 bg-[#0487f1]">
-//             <div className="lg:px-10 h-full pt-8">
-//               <input
-//                 type="text"
-//                 name="name"
-//                 required
-//                 placeholder={user?.displayName}
-//                 className="w-full p-3 mt-4"
-//                 readOnly
-//               />
+const AddTour = () => {
+  const { register, handleSubmit, reset } = useForm();
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+  const onSubmit = async (data) => {
+    console.log(data);
+    // image upload to imgbb and then get an url
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    if (res.data.success) {
+      // now send the menu item data to the server with the image url
+      const menuItem = {
+        trip_title: data.name,
+        tour_type: data.category,
+        price: parseFloat(data.price),
+        recipe: data.recipe,
+        image_url: res.data.data.display_url,
+      };
+      //
+      const menuRes = await axiosSecure.post("/tourtype", menuItem);
+      console.log(menuRes.data);
+      if (menuRes.data.insertedId) {
+        // show success popup
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${data.name} is added to the tour.`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+    console.log("with image url", res.data);
+  };
 
-//               <br />
-//               <input
-//                 type="photo"
-//                 name="photo"
-//                 placeholder="photoUrl*"
-//                 className="w-full p-3 mt-4"
-//                 readOnly="true"
-//               />
+  return (
+    <div>
+      <div>
+        <div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control w-full my-6">
+              <label className="label">
+                <span className="label-text">Tour Type*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Tour Type "
+                {...register("name", { required: true })}
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="flex gap-6">
+              {/* category */}
+              <div className="form-control w-full my-6">
+                <label className="label">
+                  <span className="label-text">Category*</span>
+                </label>
+                <select
+                  defaultValue="default"
+                  {...register("category", { required: true })}
+                  className="select select-bordered w-full"
+                >
+                  <option disabled value="default">
+                    Select a category
+                  </option>
+                  <option>Beach holyDays</option>
+                  <option>Historical </option>
+                  <option>Wild Life safaris</option>
+                  <option>Adventure tour</option>
+                </select>
+              </div>
 
-//               <br />
-//               <input
-//                 type="email"
-//                 name="email"
-//                 required
-//                 placeholder=
-//                 {user?.email}
-//                 className="w-full p-3 mt-4"
-//                 readOnly="true"
-//               />
-//               <br />
-//               <input
-//                 type="number"
-//                 name="price"
-//                 placeholder=
-//                 {price}
-//                 className="w-full p-3 mt-4"
-//                 readOnly
-//               />
-//               <br />
+              {/* price */}
+              <div className="form-control w-full my-6">
+                <label className="label">
+                  <span className="label-text">Price*</span>
+                </label>
+                <input
+                  type="number"
+                  placeholder="Price"
+                  {...register("price", { required: true })}
+                  className="input input-bordered w-full"
+                />
+              </div>
+            </div>
+            {/* recipe details */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Tour Details</span>
+              </label>
+              <textarea
+                {...register("recipe")}
+                className="textarea textarea-bordered h-24"
+              ></textarea>
+            </div>
 
-//               <select name="Guide" className="w-full p-2 mt-4 mb-4">
-//                 <option value="Pavel Novak">Pavel Novak</option>
-//                 <option value="Maria Garcia">Maria Garcia</option>
-//                 <option value="John Smith">John Smith</option>
-//                 <option value="Anna Kovacs">Anna Kovacs</option>
-//               </select>
+            <div className="form-control w-full my-6 flex-row justify-evenly">
+              <div>
+                <input
+                  {...register("image", { required: true })}
+                  type="file"
+                  className="file-input w-full max-w-xs"
+                />
+              </div>
+              <div>
+                {" "}
+                <button className="btn">Add Tour</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-//               <br />
-//             </div>
-           
-             
-//             </div>
-//             <input
-//               type="submit"
-//               value="Save & Continue"
-//               className="w-full btn btn-primary my-6"
-//             />
-            
-//           </form>
-//         </div>
-        
-//       </div>
-//         </div>
-//     );
-// };
-
-// export default AddTour;
+export default AddTour;

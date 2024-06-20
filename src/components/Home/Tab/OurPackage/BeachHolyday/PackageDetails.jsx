@@ -17,11 +17,19 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../../../hooks/useAuth";
 import { DateRange } from 'react-date-range'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PackageDetails = () => {
   const { user } = useAuth();
   const tour = useLoaderData();
+  
+  const [roles, setRoles] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8000/allguides')
+      //   fetch("http://localhost:8000/wishList")
+          .then((res) => res.json())
+          .then((data) => setRoles(data));
+      }, []);
   
   const [dates, setDates] = useState({
     startDate: new Date(),
@@ -58,7 +66,8 @@ const PackageDetails = () => {
     const to = dates.endDate
     const from = dates.startDate
     const GuideName = form.Guide.value;
-
+    const guideemail =  form.guideemail.value;
+    const status = "In Review";
     const booking = {
      
       
@@ -74,7 +83,9 @@ const PackageDetails = () => {
       GuideName,
       to,
       from,
-      price
+      price,
+      guideemail,
+      status
     }; // Fixed property name
     // console.log(addComment);
 
@@ -198,8 +209,23 @@ const PackageDetails = () => {
                 <option value="John Smith">John Smith</option>
                 <option value="Anna Kovacs">Anna Kovacs</option>
               </select>
-
+              
               <br />
+              <select name="guideemail" className="w-full p-2 mt-4 mb-4">
+                <option>{<ul>{roles.map((item) => (
+        <li key={item._id}>{item.email}</li>
+      ))}
+    </ul>}</option>
+               
+              </select>
+              <br />
+              {/* <input
+                type="text"
+                name="status"
+                placeholder='In Review'
+                className="w-full p-3 mt-4 mb-2 "
+                readOnly
+              /> */}
             </div>
            
              <div className='space-y-1 w-full p-4'>
