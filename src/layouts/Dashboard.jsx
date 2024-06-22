@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { logOut } = useAuth();
   const [role] = useRole()
  
-console.log(role);
+// console.log(role);
   return (
     <div>
     <div><Navbar></Navbar></div>

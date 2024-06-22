@@ -11,12 +11,12 @@ const WishList = () => {
     const {user} = useAuth();
     // const navigate = useNavigate();
     useEffect(() => {
-      fetch(`http://localhost:8000/wishList/${user?.email}`)
-    //   fetch("http://localhost:8000/wishList")
+      fetch(`https://tourist-server-six.vercel.app/wishList/${user?.email}`)
+    //   fetch("https://tourist-server-six.vercel.app/wishList")
         .then((res) => res.json())
         .then((data) => setBookings(data));
     }, []);
-    console.log(bookings);
+    // console.log(bookings);
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

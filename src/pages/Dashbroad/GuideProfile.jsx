@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const GuideProfile = () => {
     const [guides, setGuide] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8000/guide")
+        fetch("https://tourist-server-six.vercel.app/guide")
           .then((res) => res.json())
           .then((data) => setGuide(data));
       }, []);

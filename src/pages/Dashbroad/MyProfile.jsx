@@ -60,7 +60,7 @@
 
 //     // send to server
 
-//     fetch("http://localhost:8000/story", {
+//     fetch("https://tourist-server-six.vercel.app/story", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(story),
@@ -188,7 +188,7 @@ const MyProfile = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/story", {
+      const response = await fetch("https://tourist-server-six.vercel.app/story", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(story),

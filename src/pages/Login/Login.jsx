@@ -26,7 +26,7 @@ const Login = () => {
       navigate(from)
       toast.success('Signup Successful')
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
       setLoading(false)
     }
@@ -39,11 +39,11 @@ const Login = () => {
       toast.success('Request Success! Check your email for further process...')
       setLoading(false)
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
       setLoading(false)
     }
-    console.log(email)
+    // console.log(email)
   }
 
   // handle google signin
@@ -54,7 +54,7 @@ const Login = () => {
       navigate(from)
       toast.success('Signup Successful')
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
     }
   }

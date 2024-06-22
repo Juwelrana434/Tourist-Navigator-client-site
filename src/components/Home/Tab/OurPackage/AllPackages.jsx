@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const AllPackages = () => {
     const [tourTypes, setTourTypes] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:8000/tourtype")
+      fetch("https://tourist-server-six.vercel.app/tourtype")
         .then((res) => res.json())
         .then((data) => setTourTypes(data));
     }, []);

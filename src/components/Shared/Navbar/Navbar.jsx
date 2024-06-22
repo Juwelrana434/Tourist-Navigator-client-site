@@ -8,7 +8,7 @@ import avatarImg from "../../../assets/images/placeholder.jpg";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(user);
+  // console.log(user);
   const navbar = (
   <>
   <li>

@@ -25,7 +25,7 @@ const {tour_type,
     durations,
     Transport,
     location} = story;
-    console.log(story);
+    // console.log(story);
     return (
         <div>
         <Helmet>

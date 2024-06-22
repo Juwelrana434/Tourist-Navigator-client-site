@@ -3,7 +3,7 @@
 // import useAuth from "./useAuth";
 
 // const axiosSecures = axios.create({
-//     baseURL: 'http://localhost:8000'
+//     baseURL: 'https://tourist-server-six.vercel.app'
 // })
 
 // const useAxiosSecures = () => {

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const TourStore = () => {
     const [stores, setStore] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:8000/tourstory")
+      fetch("https://tourist-server-six.vercel.app/tourstory")
         .then((res) => res.json())
         .then((data) => setStore(data));
     }, []);
-    console.log(stores);
+    // console.log(stores);
     return (
         <div>
         <h1 className="text-center text-[25px] font-bold my-10">Our Latest Tour Story</h1>

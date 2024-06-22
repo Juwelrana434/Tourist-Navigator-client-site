@@ -8,7 +8,7 @@ const GuideDetails = () => {
   const {
     name,country,expertise,languages_spoken,educational_qualification,image_url
   } = guides;
-console.log(guides);
+// console.log(guides);
 
 // user feedbck 
 const handleAddComment = (event) => {
@@ -31,7 +31,7 @@ const handleAddComment = (event) => {
   
   // send to server
 
-  fetch("http://localhost:8000/comment", {
+  fetch("https://tourist-server-six.vercel.app/comment", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(addComment),

@@ -20,6 +20,7 @@ import ManageUsers from "../pages/Dashbroad/ManageUsers";
 import AddTour from './../pages/Dashbroad/AddTour';
 import Profile from "../pages/Dashbroad/Menu/Profile";
 import MyAssignedTours from "../pages/Dashbroad/Menu/MyAssignedTours";
+import Payment from './../pages/Dashbroad/PaymentHistory/Payment/Payment';
 
 
 
@@ -41,13 +42,13 @@ export const router = createBrowserRouter([
         path: "/tourtype/:id", 
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/tourtype/${params.id}`),
+          fetch(`https://tourist-server-six.vercel.app/tourtype/${params.id}`),
       },
       {
         path: "/beach:id",
         element: <OurPackage></OurPackage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/tourtype/${params.id}`),
+          fetch(`https://tourist-server-six.vercel.app/tourtype/${params.id}`),
       },
       {
         path: "/beach/:id",
@@ -57,13 +58,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/guide/${params.id}`),
+          fetch(`https://tourist-server-six.vercel.app/guide/${params.id}`),
       },
       {
         path: "/allpackage",
         element: <AllPackages></AllPackages>,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:8000/tourtype/${params.id}`),
+        //   fetch(`https://tourist-server-six.vercel.app/tourtype/${params.id}`),
       },
       {
         path: "/AllStory",
@@ -78,7 +79,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/tourstory/${params.id}`),
+          fetch(`https://tourist-server-six.vercel.app/tourstory/${params.id}`),
       },
       
     ],
@@ -126,6 +127,10 @@ export const router = createBrowserRouter([
       {
         path: 'addtour',
         element: <AddTour></AddTour>,
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>,
       },
     ],
   },

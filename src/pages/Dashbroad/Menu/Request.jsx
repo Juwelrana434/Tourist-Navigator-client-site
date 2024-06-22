@@ -8,8 +8,8 @@
 // const {user} =useAuth();
 //     const [bookings, setBookings] = useState([]);
 //     useEffect(() => {
-//       fetch(`http://localhost:8000/user/${user?.email}`)
-//     //   fetch('http://localhost:8000/booking')
+//       fetch(`https://tourist-server-six.vercel.app/user/${user?.email}`)
+//     //   fetch('https://tourist-server-six.vercel.app/booking')
 //         .then((res) => res.json())
 //         .then((data) => setBookings(data));
 //     }, []);

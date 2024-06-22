@@ -19,18 +19,18 @@ const MyAssignedTours = () => {
   const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8000/booking/guide/${user?.email}`)
-      //   fetch("http://localhost:8000/wishList")
+    fetch(`https://tourist-server-six.vercel.app/booking/guide/${user?.email}`)
+      //   fetch("https://tourist-server-six.vercel.app/wishList")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);
-  console.log(bookings);
+  // console.log(bookings);
 
   const handleStatus = async (id, prevStatus, status) => {
-    console.log(id, prevStatus, status);
-    if (prevStatus === status) return console.log("Sry vai.. hobena");
+    // console.log(id, prevStatus, status);
+    if (prevStatus === status) return;
     axiosSecure.patch(`/book/${id}`, { status }).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
       
         Swal.fire({

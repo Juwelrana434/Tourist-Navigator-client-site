@@ -20,7 +20,7 @@
 
 //   const [userss, setUsers] = useState([]);
 //   useEffect(() => {
-//       fetch("http://localhost:8000/users")
+//       fetch("https://tourist-server-six.vercel.app/users")
 //         .then((res) => res.json())
 //         .then((data) => setUsers(data));
 //     }, []);
@@ -149,7 +149,7 @@ const ManageUsers = () => {
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({
@@ -164,7 +164,7 @@ const ManageUsers = () => {
   };
   const handleMakeGuide = (user) => {
     axiosSecure.patch(`/users/guide/${user._id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({
@@ -248,7 +248,7 @@ const ManageUsers = () => {
                 
                 </td>
                 <td>
-                {user.role === "admin" ? ("Not applicable"):(<button
+                {user.role === "admin" || user.role ==="guide" ? (""):(<button
                       onClick={() => handleMakeGuide(user)}
                     
                     className="btn btn-accent"

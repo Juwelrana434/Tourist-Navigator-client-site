@@ -25,8 +25,8 @@ const PackageDetails = () => {
   
   const [roles, setRoles] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/allguides')
-      //   fetch("http://localhost:8000/wishList")
+        fetch('https://tourist-server-six.vercel.app/allguides')
+      //   fetch("https://tourist-server-six.vercel.app/wishList")
           .then((res) => res.json())
           .then((data) => setRoles(data));
       }, []);
@@ -36,12 +36,12 @@ const PackageDetails = () => {
     endDate: new Date(),
     key: 'selection',
   })
-  console.log(dates);
+  // console.log(dates);
   //Date range handler
   const handleDates = item => {
     setDates(item.selection)
   }
-  console.log(tour);
+  // console.log(tour);
   const {
     tour_type,
     trip_title,
@@ -93,7 +93,7 @@ const PackageDetails = () => {
 
     // send to server
 
-    fetch("http://localhost:8000/booking", {
+    fetch("https://tourist-server-six.vercel.app/booking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking),
@@ -212,13 +212,13 @@ const PackageDetails = () => {
               
               <br />
               
-              <select name="guideemail" className="w-full p-2 mt-4 mb-4">
+             {roles.length > 0 ? (<select name="guideemail" className="w-full p-2 mt-4 mb-4">
                 <option>{<ul>{roles.map((item) => (
         <li key={item._id}>{item.email}</li>
       ))}
-    </ul>}  {user.email}</option>
+    </ul>}</option>
                
-              </select>
+              </select>):(<select name="guideemail" className="w-full p-2 mt-4 mb-4"> <option >{user.email}</option></select>)} 
               <br />
               {/* <input
                 type="text"

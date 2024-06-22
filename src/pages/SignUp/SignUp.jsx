@@ -34,11 +34,11 @@ const SignUp = () => {
         }`,
         formData
       )
-      console.log(data.data.display_url)
+      // console.log(data.data.display_url)
 
       //2. User Registration
       const result = await createUser(email, password)
-      console.log(result)
+      // console.log(result)
 
       // 3. Save username and photo in firebase
       await updateUserProfile(name, data.data.display_url)
@@ -47,7 +47,7 @@ const SignUp = () => {
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
     }
   }
@@ -60,7 +60,7 @@ const SignUp = () => {
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
     }
   }

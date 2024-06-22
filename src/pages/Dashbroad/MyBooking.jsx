@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
+
 // import { FaTrashAlt } from "react-icons/fa";
 import { axiosSecure } from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MyBooking = () => {
 const {user} = useAuth();
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-      fetch(`http://localhost:8000/booking/${user?.email}`)
-    //   fetch('http://localhost:8000/booking')
+      fetch(`https://tourist-server-six.vercel.app/booking/${user?.email}`)
+    //   fetch('https://tourist-server-six.vercel.app/booking')
         .then((res) => res.json())
         .then((data) => setBookings(data));
     }, []);
-    console.log(bookings);
-   
+    // console.log(bookings);
+   // Calculate total price
+  const totalPrice = bookings.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')), 0);
+
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -47,7 +51,7 @@ const {user} = useAuth();
     if (bookings.length > 3) {toast.success('Congratulations You have successfully won discount')}
     return (
         <div>
-        
+        <h1 className="text-xl font-semibold"> Total Tour price : ${totalPrice}</h1>
            <div className="overflow-x-auto">
                 <table className="table  w-full">
                     {/* head */}
@@ -104,11 +108,10 @@ const {user} = useAuth();
                                    
                                 </th>
                                 <th>
-                                {item.status === "Accepted" ? (<button
-                                        onClick={() => handleDelete(item._id)}
+                                {item.status === "Accepted" ? (<Link to='/dashbroad/payment'><button
                                         className="btn btn-primary">
                                        Payment
-                                    </button>):(''
+                                    </button></Link>):(''
                 )}
                                 </th>
                             </tr>)
@@ -118,6 +121,7 @@ const {user} = useAuth();
                     </tbody>
                 </table>
             </div>
+            
         </div>
     );
 };

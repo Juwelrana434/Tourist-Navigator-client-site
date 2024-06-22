@@ -13,13 +13,13 @@ import Swal from "sweetalert2";
 const OurPackage = () => {
   const [tourTypes, setTourTypes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/tourtype")
+    fetch("https://tourist-server-six.vercel.app/tourtype")
       .then((res) => res.json())
       .then((data) => setTourTypes(data));
   }, []);
   //  const tour = useLoaderData();
   //  const {_id, image_url, tour_type, trip_title} = tour;
-console.log(tourTypes);
+// console.log(tourTypes);
 // console.log(tour);
 //   add to wish list 
 
@@ -89,7 +89,7 @@ const handleAddToWishList = (item) => {
 //       });
 //   }
 // }
-fetch("http://localhost:8000/wishList", {
+fetch("https://tourist-server-six.vercel.app/wishList", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify( WishListItem),

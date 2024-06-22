@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const TouristGuide = () => {
 const [guides, setGuide] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8000/guide")
+        fetch("https://tourist-server-six.vercel.app/guide")
           .then((res) => res.json())
           .then((data) => setGuide(data));
       }, []);
-      console.log(guides);
+    //   console.log(guides);
     return (
         <div>
             <h2 className="text-4xl text-center font-bold my-6"> Tour Guides</h2>
