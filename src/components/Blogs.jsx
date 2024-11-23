@@ -58,7 +58,7 @@ const BlogPostForm = () => {
     const blogData = { title, content, image };
 
     try {
-      const response = await fetch("http://localhost:8000/blogs", {
+      const response = await fetch("https://tourist-server-six.vercel.app/blogs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -8,7 +8,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:8000/blogs"); // Adjust the endpoint if necessary
+        const response = await fetch("https://tourist-server-six.vercel.app/blogs"); // Adjust the endpoint if necessary
         if (response.ok) {
           const data = await response.json();
           setBlogs(data); // Assuming the response is an array of blog posts

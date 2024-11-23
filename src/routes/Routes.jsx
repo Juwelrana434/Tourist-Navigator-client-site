@@ -23,6 +23,7 @@ import MyAssignedTours from "../pages/Dashbroad/Menu/MyAssignedTours";
 import Payment from './../pages/Dashbroad/PaymentHistory/Payment/Payment';
 import AboutUs from "../components/AboutUs";
 import Blogs from "../components/Blogs";
+import ContactEmail from "../components/ContactEmail";
 
 
 
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
        path: '/blogs',
        element: <Blogs></Blogs>,
+      },
+      {
+       path: '/contactUs',
+       element: <ContactEmail></ContactEmail>,
       },
       {
         path: "/tourstory/:id",
