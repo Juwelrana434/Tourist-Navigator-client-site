@@ -28,7 +28,7 @@ const BlogList = () => {
   if (loading) {
     return <div>Loading blog posts...</div>;
   }
-
+  
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
       {blogs.length === 0 ? (
