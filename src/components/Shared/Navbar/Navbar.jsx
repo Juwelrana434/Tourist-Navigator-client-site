@@ -15,13 +15,13 @@ const Navbar = () => {
         <NavLink to="/">HOME</NavLink>
       </li>
   <li>
-        <NavLink to="/community">Community</NavLink>
+        <NavLink to="/AllStory">Community</NavLink>
       </li>
   <li>
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
   <li>
-        <NavLink to="/aboutUs,">About Us</NavLink>
+        <NavLink to="/aboutUs">About Us</NavLink>
       </li>
   <li>
         <NavLink to="/contactUs,">Contact Us</NavLink>

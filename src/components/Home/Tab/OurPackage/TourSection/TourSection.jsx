@@ -5,93 +5,82 @@ import img4 from "../../../../../assets/images/beach2.jpg";
 
 const TourSection = () => {
   return (
-    <div>
-      <h1 className="text-center text-4xl font-bold my-6">
+    <div className="py-10 bg-gray-50 text-gray-800">
+      {/* Section Title */}
+      <h1 className="text-center text-4xl font-extrabold mb-8">
         Our Most Popular Tours
       </h1>
-      <div>
-        <div className="grid md:lg:grid-cols-2 grid-cols-1 gap-6">
-          <p className="text-xl py-4">
-            <span className="text-2xl font-bold">SYLHET</span> <br /> In
-            northeastern Bengal, on the bank of the River Surma, sits the lovely
-            city of Sylhet in Bangladesh. It serves as the district and
-            divisional headquarters for the districts of Sylhet, Moulvibazar,
-            Habiganj, and Sunamganj.The picture-perfect city has all the
-            elements of a dreamy fairy tale setting, including a picturesque
-            harbour,
-          </p>
-          <img src={img1} className="w-full rounded-xl" />
-        </div>
-        <p className="text-xl py-4">
-          grand views of the neighbouring mountain range, and vibrant rows of
-          wooden houses. It's not difficult to imagine Sylhet as one of the most
-          gorgeous fairytale settings come to life with its serene, tree-lined
-          parks and cobblestone walkways.
-        </p>
-      </div>
-      <div>
-        <div className="grid md:lg:grid-cols-2 grid-cols-1 gap-6">
-          <img src={img2} className="w-full rounded-xl" />
-          <p className="text-xl py-4">
-            <span className="text-2xl font-bold">COX'S BAZAR</span> <br />
-            You should without a doubt go to Cox's Bazar, which is situated next
-            to the seashore along the Bay of Bengal, if you're looking for the
-            most well-known tourist destinations in Bangladesh. It features the
-            longest uninterrupted sea beach in the world, which is more than 120
-            kilometres long.
-          </p>
-        </div>
-        <p className="text-xl py-4">
-          Miles of golden beach, surfing waves, tall cliffs, unusual conch
-          shells, waterfalls, pagodas, and parks may also be found here. The
-          main draw of Cox's Bazar is the enormous Buddhist monastery known as
-          Aggmeda Khyang, which houses numerous massive bronze statues of
-          Buddha.
-        </p>
-      </div>
-      <div>
-        <div className="grid md:lg:grid-cols-2 grid-cols-1 gap-6">
-          <p className="text-xl py-4">
-            <span className="text-2xl font-bold">SONARGAON</span> <br /> Due to
-            its location as a busy river port in the late 1800s, Sonargaon was a
-            popular destination for muslin traders. Its numerous galleries and
-            historical landmarks make it a popular tourist destination and add
-            to its allure. A magnificent museum has been created in the old
-            residence of a successful Hindu merchant, the Boro Sardar Bari.
-          </p>
-          <img src={img3} className="w-full rounded-xl" />
-        </div>
-        <p className="text-xl py-4">
-          grand views of the neighbouring mountain range, and vibrant rows of
-          wooden houses. It's not difficult to imagine Sylhet as one of the most
-          gorgeous fairytale settings come to life with its serene, tree-lined
-          parks and cobblestone walkways.
-        </p>
-      </div>
-      <div>
-        <div className="grid md:lg:grid-cols-2 grid-cols-1 gap-6">
-        <img src={img4} className="w-full rounded-xl" />
-          <p className="text-xl py-4">
-            <span className="text-2xl font-bold">ST. MARTIN’S ISLAND</span>{" "}
-            <br /> St. Martin's Island is the only coral island in Bangladesh.
-            This island is referred to as "Narikel Zinzira" in Bengali, which
-            translates to "Coconut Island," because it has an overabundance of
-            coconut palms. 9 kilometres to the south of Coxs Bazar is the
-            island.
-          </p>
-          
-        </div>
-        <p className="text-xl py-4">
-          grand views of the neighbouring mountain range, and vibrant rows of
-          wooden houses. It's not difficult to imagine Sylhet as one of the most
-          gorgeous fairytale settings come to life with its serene, tree-lined
-          parks and cobblestone walkways.
-        </p>
-      </div>
 
-      
+      {/* Tour Cards */}
+      <div className="space-y-10">
+        {/* Sylhet */}
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <p className="text-xl leading-8">
+            <span className="text-2xl font-bold">SYLHET</span> <br />
+            In northeastern Bengal, on the bank of the River Surma, sits the
+            lovely city of Sylhet in Bangladesh. It serves as the district and
+            divisional headquarters for the districts of Sylhet, Moulvibazar,
+            Habiganj, and Sunamganj. The picture-perfect city has all the
+            elements of a dreamy fairy tale setting, including a picturesque
+            harbour, grand views of the neighbouring mountain range, and vibrant
+            rows of wooden houses.
+          </p>
+          <img src={img1} alt="Sylhet" className="w-full rounded-xl shadow-lg" />
+        </div>
+
+        {/* Cox's Bazar */}
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <img
+            src={img2}
+            alt="Cox's Bazar"
+            className="w-full rounded-xl shadow-lg"
+          />
+          <p className="text-xl leading-8">
+            <span className="text-2xl font-bold">COX'S BAZAR</span> <br />
+            Situated next to the Bay of Bengal, Cox's Bazar is a must-visit for
+            tourists in Bangladesh. It features the world's longest sea beach,
+            stretching over 120 kilometers. Miles of golden beach, surfing
+            waves, waterfalls, and parks add to its charm. A major highlight is
+            the Buddhist monastery, Aggmeda Khyang, with its massive bronze
+            Buddha statues.
+          </p>
+        </div>
+
+        {/* Sonargaon */}
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <p className="text-xl leading-8">
+            <span className="text-2xl font-bold">SONARGAON</span> <br />
+            Once a bustling river port, Sonargaon remains a treasure trove of
+            history and culture. It is famous for its muslin trade and heritage
+            sites. The Boro Sardar Bari, a restored mansion of a Hindu merchant,
+            serves as a magnificent museum showcasing the area's rich past.
+          </p>
+          <img
+            src={img3}
+            alt="Sonargaon"
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
+
+        {/* St. Martin's Island */}
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <img
+            src={img4}
+            alt="St. Martin's Island"
+            className="w-full rounded-xl shadow-lg"
+          />
+          <p className="text-xl leading-8">
+            <span className="text-2xl font-bold">ST. MARTIN’S ISLAND</span> <br />
+            St. Martin's Island, also known as Coconut Island, is the only
+            coral island in Bangladesh. Located 9 kilometers south of Cox's
+            Bazar, it offers serene beaches, coconut palms, and crystal-clear
+            waters. It is a haven for nature lovers and adventurers alike.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default TourSection;
+

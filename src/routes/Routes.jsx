@@ -21,6 +21,8 @@ import AddTour from './../pages/Dashbroad/AddTour';
 import Profile from "../pages/Dashbroad/Menu/Profile";
 import MyAssignedTours from "../pages/Dashbroad/Menu/MyAssignedTours";
 import Payment from './../pages/Dashbroad/PaymentHistory/Payment/Payment';
+import AboutUs from "../components/AboutUs";
+import Blogs from "../components/Blogs";
 
 
 
@@ -70,6 +72,14 @@ export const router = createBrowserRouter([
         path: "/AllStory",
         element: <AllStrory></AllStrory>,
         
+      },
+      {
+       path: '/aboutUs',
+       element: <AboutUs></AboutUs>,
+      },
+      {
+       path: '/blogs',
+       element: <Blogs></Blogs>,
       },
       {
         path: "/tourstory/:id",

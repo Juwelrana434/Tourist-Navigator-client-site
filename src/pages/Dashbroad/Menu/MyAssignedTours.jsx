@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 
 import useAuth from "../../../hooks/useAuth";
-// import { axiosSecure } from "../../../hooks/useAxiosSecure";
-// import Swal from "sweetalert2";
-// import useAxiosSecure from "../../../hooks/useAxiosSecure";
-// import { useQuery } from "@tanstack/react-query";
-// import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
-// import axios from "axios";
+
 import { Helmet } from "react-helmet-async";
 import { axiosSecure } from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -113,3 +108,9 @@ const MyAssignedTours = () => {
 };
 
 export default MyAssignedTours;
+// import { axiosSecure } from "../../../hooks/useAxiosSecure";
+// import Swal from "sweetalert2";
+// import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// import { useQuery } from "@tanstack/react-query";
+// import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
+// import axios from "axios";

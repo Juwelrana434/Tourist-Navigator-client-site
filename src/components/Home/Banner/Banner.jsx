@@ -1,196 +1,90 @@
-import im1 from "../../../assets/images/tajmohol.jpg"
-import im2 from "../../../assets/images/Home15.jpg"
-import im3 from "../../../assets/images/pic3.jpg"
-import im4 from "../../../assets/images/pic5.jpg"
-import im5 from "../../../assets/images/bankok.jpg"
-import im6 from "../../../assets/images/pic5.jpg"
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import im1 from "../../../assets/images/tajmohol.jpg";
+import im2 from "../../../assets/images/Home15.jpg";
+import im3 from "../../../assets/images/pic3.jpg";
+import im4 from "../../../assets/images/pic5.jpg";
+import im5 from "../../../assets/images/bankok.jpg";
 
 const Banner = () => {
-    return (
-        <div>
-            <div>
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im1} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
-                Discover <br />the World's <br /> Hidden Gems
-                </h1>
-                <p className="py-4">
-                Discover hidden gems and create unforgettable memories with our travel guides
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide6" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide2" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im2} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
-                Explore Dream <br />
-                Discover
-                </h1>
-                <p className="py-4">
-                Your ultimate adventure starts here—explore the world with us
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide1" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide3" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im3} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 py-1">
-                Find Your <br />Next Destination
-                </h1>
-                <p className="py-4">
-                Unlock the secrets of the world's most beautiful places
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
+  const slides = [
+    {
+      id: 1,
+      image: im1,
+      title: "Discover the World's Hidden Gems",
+      description:
+        "Discover hidden gems and create unforgettable memories with our travel guides.",
+    },
+    {
+      id: 2,
+      image: im2,
+      title: "Explore Dream, Discover",
+      description: "Your ultimate adventure starts here—explore the world with us.",
+    },
+    {
+      id: 3,
+      image: im3,
+      title: "Find Your Next Destination",
+      description: "Unlock the secrets of the world's most beautiful places.",
+    },
+    {
+      id: 4,
+      image: im4,
+      title: "Wander More, Worry Less",
+      description: "Travel with ease and explore like never before.",
+    },
+    {
+      id: 5,
+      image: im5,
+      title: "Adventure Awaits",
+      description: "Step out and experience the beauty of the unknown.",
+    },
+  ];
+
+  return (
+    <div className="w-full">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={30}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 }}
+        loop={true}
+        className="rounded-xl"
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="relative w-full lg:h-[500px]">
+              <img
+                src={slide.image}
+                alt={`Slide ${slide.id}`}
+                className="w-full h-full object-cover rounded-xl"
+              />
+              <div className="absolute flex items-center h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525] p-6 lg:pl-20 md:pl-10 pl-4 rounded-xl">
+                <div className="text-white">
+                  <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3">
+                    {slide.title}
+                  </h1>
+                  <p className="py-4">{slide.description}</p>
+                  <div>
+                    <button className="btn btn-error mr-4">Discover More</button>
+                    <button className="btn btn-active btn-neutral">
+                      Latest Project
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide2" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im4} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 py-1">
-                Wander More,<br /> Worry Less
-                </h1>
-                <p className="py-4">
-                Unlock the secrets of the world's most beautiful places
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide3" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide5" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide5" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im5} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
-                Wander More,<br /> Worry Less
-                </h1>
-                <p className="py-4">
-                Unlock the secrets of the world's most beautiful places
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide4" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide6" className="btn btn-circle btn-error btn-outline">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide6" className="carousel-item relative w-full lg:h-[500px]">
-          <img src={im6} className="w-full rounded-xl" />
-          <div className="absolute flex justify-start items-center rounded-xl transform h-full w-[40%] bottom-0 bg-gradient-to-r from-[#151515FF] to-[#15151525]">
-            <div className="flex flex-col lg:pl-20 md:pl-10 pl-4">
-              <div className="text-white">
-                <h1 className="lg:text-6xl md:text-2xl text-xl font-bold lg:py-6 md:py-3 text-2">
-                Wander More,<br /> Worry Less
-                </h1>
-                <p className="py-4">
-                Unlock the secrets of the world's most beautiful places
-                </p>
-              </div>
-              <div>
-                <button className="btn btn-error mr-4">Discover More</button>
-                <button className="btn btn-active btn-neutral">
-                  Latest Project
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-            <a href="#slide5" className="btn btn-circle mr-5">
-              ❮
-            </a>
-            <a href="#slide1" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        
-      
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
-        </div>
-    );
+  );
 };
 
 export default Banner;

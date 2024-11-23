@@ -118,7 +118,7 @@ const AddTour = () => {
                 />
               </div>
               <div>
-                {" "}
+              
                 <button className="btn">Add Tour</button>
               </div>
             </div>

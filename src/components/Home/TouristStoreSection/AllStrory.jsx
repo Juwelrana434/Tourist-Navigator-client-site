@@ -8,6 +8,7 @@ import {
    
    
   } from "react-share";
+  import avatarImg from "../../../assets/images/placeholder.jpg";
 
 
 const AllStrory = () => {
@@ -33,9 +34,16 @@ const shareUrl = window.location.href
           <div className="ml-4 py-4">
             <div className="chat chat-start">
   <div className="chat-image avatar">
-    <div className="w-10 rounded-full">
-      <img alt="Tailwind CSS chat bubble component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-    </div>
+  <div className="w-12 h-12 rounded-full overflow-hidden">
+                    <img
+                      className="rounded-full"
+                      referrerPolicy="no-referrer"
+                      src={store && store.photoURL ? store.photoURL : avatarImg}
+                      alt="profile"
+                      height="40"
+                      width="40"
+                    />
+                    </div>
   </div>
   <div className="chat-bubble">{store.excerpt}</div>
 </div>
